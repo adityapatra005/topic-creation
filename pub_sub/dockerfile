@@ -1,0 +1,14 @@
+FROM golang
+
+RUN mkdir /main
+
+ADD . /main
+
+WORKDIR /main
+
+RUN go mod download
+
+RUN go build -o main .
+
+
+CMD ["/main/main"]
